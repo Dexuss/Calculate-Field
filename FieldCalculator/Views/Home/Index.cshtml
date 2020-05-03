@@ -1,0 +1,39 @@
+﻿
+@model FieldCalculator.Models.FieldCalculatorViewModel
+@{
+    Layout = null;
+}
+@using (Html.BeginForm())
+{
+<style>
+    #InputData{
+        display:none;
+        font-size:20px;
+    }
+    #choose_figure,#calculate_button {
+        font-size: 20px;
+    }
+</style>
+<fieldset>
+    <legend style="color:brown;font-size:30px;"> <b>Oblicz pole figury płaskiej</b> </legend>
+    <h2 id="description"></h2>
+    <select id="choose_figure">
+        <option selected="true" disabled>Wybierz figurę</option>
+        <option value="Oblicz pole kwadratu">Kwadrat</option>
+        <option value="Oblicz pole prostokąta">Prostokąt</option>
+        <option value="Oblicz pole równoległoboku">Równoległobok</option>
+        <option value="Oblicz pole trapezu">Trapez</option>
+        <option value="Oblicz pole koła">Koło</option>
+        <option value="Oblicz pole trójkąta">Trójkąt</option>
+        <option value="Oblicz pole rombu">Romb</option>
+    </select>
+    @Html.EditorFor(x => x.InputData)
+    <input id="calculate_button" type="submit" value="Oblicz pole" name="command" disabled />
+    <br />
+    <br />
+    <h2 style="color:forestgreen;">
+        @Html.DisplayFor(x => x.choosedFigure) @Html.DisplayFor(x => x.Score)
+    </h2>
+</fieldset>
+<script src="../../Scripts/scripts.js"></script>
+}
